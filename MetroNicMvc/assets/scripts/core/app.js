@@ -2,7 +2,6 @@
 Core script to handle the entire theme and core functions
 **/
 var App = function () {
-
     // IE mode
     var isRTL = false;
     var isIE8 = false;
@@ -11,7 +10,6 @@ var App = function () {
 
     var sidebarWidth = 225;
     var sidebarCollapsedWidth = 35;
-
     var responsiveHandlers = [];
 
     // theme layout color set
@@ -40,7 +38,6 @@ var App = function () {
 
     // initializes main settings
     var handleInit = function () {
-
         if ($('body').css('direction') === 'rtl') {
             isRTL = true;
         }
@@ -192,9 +189,8 @@ var App = function () {
             parent.children('li.open').children('a').children('.arrow').removeClass('open');
             parent.children('li.open').children('.sub-menu:not(.always-open)').slideUp(200);
             parent.children('li.open').removeClass('open');
-            
-            var slideOffeset = -200;
 
+            var slideOffeset = -200;
             if (sub.is(":visible")) {
                 jQuery('.arrow', jQuery(this)).removeClass("open");
                 jQuery(this).parent().removeClass("open");
@@ -246,7 +242,6 @@ var App = function () {
             $(this).parents('li').addClass('active');
 
             App.startPageLoading();
-            
             if ($(window).width() <= 991 && $('.page-sidebar').hasClass("in")) {
                 $('.navbar-toggle').click();
             }
@@ -279,7 +274,6 @@ var App = function () {
             var pageContentBody = $('.page-content .page-content-body');
 
             App.startPageLoading();
-            
             if ($(window).width() <= 991 && $('.page-sidebar').hasClass("in")) {
                 $('.navbar-toggle').click();
             }
@@ -355,13 +349,11 @@ var App = function () {
 
         $('.page-sidebar').off('mouseenter').on('mouseenter', function () {
             var body = $('body');
-
             if ((body.hasClass('page-sidebar-closed') === false || body.hasClass('page-sidebar-fixed') === false) || $(this).hasClass('page-sidebar-hovering')) {
                 return;
             }
 
             body.removeClass('page-sidebar-closed').addClass('page-sidebar-hover-on');
-
             if (body.hasClass("page-sidebar-reversed")) {
                 $(this).width(sidebarWidth);
             } else {
@@ -376,7 +368,6 @@ var App = function () {
 
         $('.page-sidebar').off('mouseleave').on('mouseleave', function () {
             var body = $('body');
-
             if ((body.hasClass('page-sidebar-hover-on') === false || body.hasClass('page-sidebar-fixed') === false) || $(this).hasClass('page-sidebar-hovering')) {
                 return;
             }
@@ -421,7 +412,6 @@ var App = function () {
             }
 
             $(".sidebar-search", sidebar).removeClass("open");
-
             if (body.hasClass("page-sidebar-closed")) {
                 body.removeClass("page-sidebar-closed");
                 if (body.hasClass('page-sidebar-fixed')) {
@@ -470,8 +460,6 @@ var App = function () {
                 $('.sidebar-search').submit();
             }
         });
-
-        // header search box:
 
         // handle the search query submit on enter press
         $('.header .search-form').on('keypress', 'input.form-control', function (e) {
@@ -582,12 +570,11 @@ var App = function () {
                 window.setTimeout(function () {
                     App.unblockUI(el);
                 }, 1000);
-            }            
+            }
         });
 
         // load ajax data on page init
         $('.portlet .portlet-title a.reload[data-load="true"]').click();
-
         jQuery('body').on('click', '.portlet > .portlet-title > .tools > .collapse, .portlet .portlet-title > .tools > .expand', function (e) {
             e.preventDefault();
             var el = jQuery(this).closest(".portlet").children(".portlet-body");
@@ -699,15 +686,12 @@ var App = function () {
     }
 
     // Handles Bootstrap Popovers
-
     // last popep popover
     var lastPopedPopover;
-
     var handlePopovers = function () {
         jQuery('.popovers').popover();
 
         // close last poped popover
-
         $(document).on('click.bs.popover.data-api', function (e) {
             if (lastPopedPopover) {
                 lastPopedPopover.popover('hide');
@@ -765,9 +749,7 @@ var App = function () {
         if (isIE8 || isIE9) { // ie8 & ie9
             // this is html5 placeholder fix for inputs, inputs with placeholder-no-fix class will be skipped(e.g: we need this for password fields)
             jQuery('input[placeholder]:not(.placeholder-no-fix), textarea[placeholder]:not(.placeholder-no-fix)').each(function () {
-
                 var input = jQuery(this);
-
                 if (input.val() == '' && input.attr("placeholder") != '') {
                     input.addClass("placeholder").val(input.attr('placeholder'));
                 }
@@ -790,7 +772,6 @@ var App = function () {
     // Handle full screen mode toggle
     var handleFullScreenMode = function() {
         // mozfullscreenerror event handler
-       
         // toggle full screen
         function toggleFullScreen() {
           if (!document.fullscreenElement &&    // alternative standard method
@@ -830,9 +811,7 @@ var App = function () {
 
     // Handle Theme Settings
     var handleTheme = function () {
-
         var panel = $('.theme-panel');
-
         if ($('body').hasClass('page-boxed') == false) {
             $('.layout-option', panel).val("fluid");
         }
@@ -843,7 +822,7 @@ var App = function () {
         if ( $('.sidebar-pos-option').attr("disabled") === false) {
             $('.sidebar-pos-option', panel).val(App.isRTL() ? 'right' : 'left');
         }
-        
+
         //handle theme layout
         var resetLayout = function () {
             $("body").
@@ -854,7 +833,6 @@ var App = function () {
             removeClass("page-sidebar-reversed");
 
             $('.header > .header-inner').removeClass("container");
-
             if ($('.page-container').parent(".container").size() === 1) {
                 $('.page-container').insertAfter('body > .clearfix');
             }
@@ -869,9 +847,7 @@ var App = function () {
         }
 
         var lastSelectedLayout = '';
-
         var setLayout = function () {
-
             var layoutOption = $('.layout-option', panel).val();
             var sidebarOption = $('.sidebar-option', panel).val();
             var headerOption = $('.header-option', panel).val();
@@ -887,7 +863,6 @@ var App = function () {
             }
 
             resetLayout(); // reset layout to default state
-
             if (layoutOption === "boxed") {
                 $("body").addClass("page-boxed");
 
@@ -990,7 +965,6 @@ var App = function () {
         });
 
         $('.layout-option, .header-option, .sidebar-option, .footer-option, .sidebar-pos-option', panel).change(setLayout);
-
         if ($.cookie && $.cookie('style_color')) {
             setColor($.cookie('style_color'));
         }
@@ -999,12 +973,9 @@ var App = function () {
     //* END:CORE HANDLERS *//
 
     return {
-
         //main function to initiate the theme
         init: function () {
-
             //IMPORTANT!!!: Do not modify the core handlers call order.
-
             //core handlers
             handleInit(); // initialize core variables
             handleResponsiveOnResize(); // set and handle responsive    
@@ -1235,7 +1206,6 @@ var App = function () {
         },
 
         alert: function(options) {
-
             options = $.extend(true, {
                 container: "", // alerts parent container(by default placed after the page breadcrumbs)
                 place: "append", // append or prepent in container 
@@ -1249,9 +1219,7 @@ var App = function () {
             }, options);
 
             var id = App.getUniqueID("app_alert");
-
             var html = '<div id="'+id+'" class="app-alerts alert alert-'+options.type+' fade in">' + (options.close ? '<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>' : '' ) + (options.icon != "" ? '<i class="fa-lg fa fa-'+options.icon + '"></i>  ' : '') + options.message+'</div>'
-
             if (options.reset) {0
                 $('.app-alerts').remove();
             }
