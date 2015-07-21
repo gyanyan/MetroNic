@@ -158,6 +158,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\BlankPageController.cs" />
+    <Compile Include="Controllers\DatatablesController.cs" />
     <Compile Include="Controllers\UIGeneralController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -462,6 +463,12 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\UIGeneral\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Datatables\BasicTable.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Datatables\DatatablesPlugin.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

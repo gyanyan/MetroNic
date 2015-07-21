@@ -200,7 +200,7 @@
                                 <li>
                                     <a href="inbox.html-a=view.htm">
                                         <span class="photo">
-                                            <img src="assets/img/avatar1.jpg" alt="" />
+                                            <img src="@Url.Content("~/assets/img/avatar1.jpg")" alt="" />
                                         </span>
                                         <span class="subject">
                                             <span class="from">
@@ -218,7 +218,7 @@
                                 <li>
                                     <a href="inbox.html-a=view.htm">
                                         <span class="photo">
-                                            <img src="assets/img/avatar1.jpg" alt="" />
+                                            <img src="@Url.Content("~/assets/img/avatar1.jpg")" alt="" />
                                         </span>
                                         <span class="subject">
                                             <span class="from">
@@ -236,7 +236,7 @@
                                 <li>
                                     <a href="inbox.html-a=view.htm">
                                         <span class="photo">
-                                            <img src="assets/img/avatar1.jpg" alt="" />
+                                            <img src="@Url.Content("~/assets/img/avatar1.jpg")" alt="" />
                                         </span>
                                         <span class="subject">
                                             <span class="from">
@@ -254,7 +254,7 @@
                                 <li>
                                     <a href="inbox.html-a=view.htm">
                                         <span class="photo">
-                                            <img src="assets/img/avatar1.jpg" alt="" />
+                                            <img src="@Url.Content("~/assets/img/avatar1.jpg")" alt="" />
                                         </span>
                                         <span class="subject">
                                             <span class="from">
@@ -544,6 +544,28 @@
                                 UIGeneral
                             </span>
                         </a>
+                    </li>
+                    <li id="sidebar_menu_datatables">
+                        <a href="javascript:;">
+                            <i class="fa fa-th"></i>
+                            <span class="title">
+                                Data Tables
+                            </span>
+                            <span class="arrow">
+                            </span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li id="sidebar_menu_basictable">
+                                <a href="@Url.Action("BasicTable", "Datatables")">
+                                    Basic Datatables
+                                </a>
+                            </li>
+                            <li id="sidebar_menu_datatables_plugin">
+                                <a href="@Url.Action("DatatablesPlugin", "Datatables")">
+                                    Datatables Plugin
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="javascript:;">
