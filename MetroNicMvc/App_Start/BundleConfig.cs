@@ -11,7 +11,7 @@ namespace MetroNicMvc
             bundles.Add(new ScriptBundle("~/core/js").Include(
                         "~/assets/plugins/jquery-1.10.2.min.js",
                         "~/assets/plugins/jquery-migrate-1.2.1.min.js",
-                        "~/assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js",    //IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip
+                        "~/assets/plugins/jquery-ui/jquery-ui.min.js",    //IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip
                         "~/assets/plugins/bootstrap/js/bootstrap.min.js",
                         "~/assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js",
                         "~/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js",
